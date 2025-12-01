@@ -970,27 +970,65 @@
   </main>
 
   <script>
-    // 年份
-    document.getElementById("year").textContent = new Date().getFullYear();
+  document.addEventListener("DOMContentLoaded", function () {
+    // 1. 年份
+    var yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
 
-    // 捲動淡入效果
-    const revealElements = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            // 若只要動畫一次，可以 unobserve
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.15,
-      }
+    // 2. 捲動淡入效果
+    var revealElements = Array.prototype.slice.call(
+      document.querySelectorAll(".reveal")
     );
 
-    revealElements.forEach((el) => observer.observe(el));
-  </script>
+    if (revealElements.length === 0) return;
+
+    // 共用：把進入視窗的元素加上 visible
+    function showOnScroll() {
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      revealElements = revealElements.filter(function (el) {
+        if (!el) return false;
+        var rect = el.getBoundingClientRect();
+        if (rect.top < windowHeight * 0.85) {
+          el.classList.add("visible");
+          return false; // 已經顯示就從陣列移除
+        }
+        return true;
+      });
+
+      // 全部都顯示後，就移除監聽
+      if (revealElements.length === 0) {
+        window.removeEventListener("scroll", showOnScroll);
+        window.removeEventListener("resize", showOnScroll);
+      }
+    }
+
+    // 如果有 IntersectionObserver，優先用（電腦 & 新版手機）
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealElements.forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      // 否則用捲動偵測（舊版手機 / 內建瀏覽器）
+      showOnScroll(); // 先跑一次
+      window.addEventListener("scroll", showOnScroll);
+      window.addEventListener("resize", showOnScroll);
+    }
+  });
+</script>
 </body>
 </html>
