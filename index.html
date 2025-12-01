@@ -12,7 +12,6 @@
   />
 
   <style>
-    /* 本機版 Noto Serif TC（可變字重） */
     @font-face {
       font-family: "Noto Serif TC Local";
       src: url("NotoSerifTC-VariableFont_wght.ttf") format("truetype");
@@ -249,6 +248,10 @@
       border-color: rgba(201, 162, 155, 0.45);
     }
 
+    .btn-ghost:hover {
+      background: rgba(252, 246, 247, 0.95);
+    }
+
     .hero-note {
       font-size: 0.8rem;
       opacity: 0.8;
@@ -328,6 +331,84 @@
       right: 18px;
       top: 22px;
       box-shadow: 0 10px 18px rgba(165, 130, 125, 0.3);
+    }
+
+    /* 月相動畫列 */
+    .moon-strip {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    .moon-strip-label {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .moon-strip-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 1.05rem;
+    }
+
+    .moon-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 162, 155, 0.5);
+      background: rgba(255, 253, 253, 0.92);
+      box-shadow: 0 8px 18px rgba(171, 145, 139, 0.14);
+      animation: moonFloat 6s ease-in-out infinite;
+    }
+
+    .moon-pill span {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .moon-pill:nth-child(2) {
+      animation-delay: 0.6s;
+    }
+    .moon-pill:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+    .moon-pill:nth-child(4) {
+      animation-delay: 1.8s;
+    }
+    .moon-pill:nth-child(5) {
+      animation-delay: 2.4s;
+    }
+    .moon-pill:nth-child(6) {
+      animation-delay: 3s;
+    }
+    .moon-pill:nth-child(7) {
+      animation-delay: 3.6s;
+    }
+    .moon-pill:nth-child(8) {
+      animation-delay: 4.2s;
+    }
+
+    @keyframes moonFloat {
+      0% {
+        transform: translateY(0);
+        opacity: 0.95;
+      }
+      50% {
+        transform: translateY(-6px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 0.95;
+      }
     }
 
     /* sections */
@@ -442,6 +523,55 @@
       opacity: 0.8;
     }
 
+    /* tarot block */
+    .tarot-card {
+      border-radius: 24px;
+      padding: 20px 20px 22px;
+      border: 1px solid rgba(201, 162, 155, 0.5);
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.95), transparent 55%),
+        rgba(248, 240, 243, 0.9);
+      display: grid;
+      gap: 14px;
+    }
+
+    @media (min-width: 720px) {
+      .tarot-card {
+        grid-template-columns: 1.2fr 1fr;
+        align-items: center;
+      }
+    }
+
+    .tarot-title {
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .tarot-desc {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .tarot-tagline {
+      font-size: 0.8rem;
+      margin-top: 4px;
+      opacity: 0.8;
+    }
+
+    .tarot-visual {
+      border-radius: 18px;
+      border: 1px dashed rgba(201, 162, 155, 0.7);
+      padding: 14px;
+      text-align: center;
+      font-size: 0.82rem;
+      opacity: 0.9;
+    }
+
+    .tarot-visual-emoji {
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+    }
+
     /* store info & contact */
     .info-grid {
       display: grid;
@@ -515,12 +645,24 @@
       text-align: center;
       opacity: 0.8;
     }
+
+    /* 捲動淡入效果 */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 
 <body>
   <!-- 導覽列 -->
-  <header>
+  <header class="reveal">
     <div class="nav">
       <div class="nav-left">
         <div class="nav-logo">
@@ -536,6 +678,7 @@
         <ul>
           <li><a href="#story">品牌故事</a></li>
           <li><a href="#menu">飲品</a></li>
+          <li><a href="#tarot">線上塔羅</a></li>
           <li><a href="#store">門市資訊</a></li>
           <li><a href="#contact">聯絡我們</a></li>
         </ul>
@@ -545,7 +688,7 @@
 
   <main class="page">
     <!-- Hero 區 -->
-    <section class="hero" id="top">
+    <section class="hero reveal" id="top">
       <div>
         <div class="hero-copy-eyebrow">TEA &amp; MOONLIGHT · TAIPEI</div>
         <h1>
@@ -558,9 +701,23 @@
 
         <div class="hero-actions">
           <a href="#menu" class="btn btn-primary">看看飲品</a>
-          <a href="#story" class="btn btn-ghost">認識品牌</a>
+          <a href="#tarot" class="btn btn-ghost">抽一張今天的牌</a>
         </div>
-        <p class="hero-note"></p>
+
+        <!-- 月相動畫列 -->
+        <div class="moon-strip">
+          <div class="moon-strip-label">phases of feelings</div>
+          <div class="moon-strip-row">
+            <div class="moon-pill">🌑 <span>new</span></div>
+            <div class="moon-pill">🌒 <span>waxing</span></div>
+            <div class="moon-pill">🌓 <span>first</span></div>
+            <div class="moon-pill">🌔 <span>gibbous</span></div>
+            <div class="moon-pill">🌕 <span>full</span></div>
+            <div class="moon-pill">🌖 <span>waning</span></div>
+            <div class="moon-pill">🌗 <span>last</span></div>
+            <div class="moon-pill">🌘 <span>crescent</span></div>
+          </div>
+        </div>
       </div>
 
       <div class="hero-visual">
@@ -575,7 +732,7 @@
     </section>
 
     <!-- 品牌故事 -->
-    <section id="story">
+    <section id="story" class="reveal">
       <div class="section-label">品牌故事</div>
       <h2 class="section-title">月相可以變化，愛的階段也可以流動。</h2>
       <p class="section-desc"></p>
@@ -595,7 +752,7 @@
     </section>
 
     <!-- 菜單 Menu -->
-    <section id="menu">
+    <section id="menu" class="reveal">
       <div class="section-label">飲品</div>
       <h2 class="section-title">如果飲料本身就帶有情緒？</h2>
       <p class="section-desc"></p>
@@ -613,7 +770,7 @@
             飲品概念／清新果茶、淡雅花香茶，如白葡萄綠茶、柚香晨霧茶
           </p>
           <div class="menu-meta">
-            <span>建議糖度：半糖</span>
+            <span>建議糖度：微糖</span>
             <span>冷／熱 皆可</span>
           </div>
         </article>
@@ -698,7 +855,7 @@
             飲品概念／葡萄微酸青茶、焦糖黑糖奶蓋，苦甜交織
           </p>
           <div class="menu-meta">
-            <span>建議糖度：微糖／半糖</span>
+            <span>建議糖度：半糖／微糖</span>
             <span>冷飲</span>
           </div>
         </article>
@@ -732,15 +889,46 @@
             飲品概念／白桃柔光冰釀、檸檬蜂蜜茶，清新輕盈
           </p>
           <div class="menu-meta">
-            <span>建議糖度：微糖</span>
+            <span>建議糖度：半糖</span>
             <span>冷飲</span>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- 線上塔羅 -->
+    <section id="tarot" class="reveal">
+      <div class="section-label">線上塔羅</div>
+      <h2 class="section-title">想知道今天的感情月相嗎？</h2>
+      <p class="section-desc"></p>
+
+      <div class="tarot-card">
+        <div>
+          <div class="tarot-title">lune amour 線上塔羅 · 抽一張屬於你的牌</div>
+          <p class="tarot-desc">
+            有時候，我們只需要一個小提示，提醒自己，現在的自己正在走哪一段路、在什麼樣的情緒裡。<br />
+            抽一張牌，當成今天的月光提醒。
+          </p>
+          <p class="tarot-tagline">
+            抽牌結果可以搭配一杯當下最適合你的飲品，一起慢慢消化。
+          </p>
+          <div style="margin-top: 10px;">
+            <!-- 把 href 換成你實際塔羅頁面的網址，例如 /taro/ -->
+            <a class="btn btn-primary" href="https://ling891819-wq.github.io/taro/" target="_blank" rel="noreferrer">
+              前往線上塔羅
+            </a>
+          </div>
+        </div>
+        <div class="tarot-visual">
+          <div class="tarot-visual-emoji">🃏🌙</div>
+          <div>洗牌、抽牌、翻開。</div>
+          <div>就像看了一眼自己的內心天氣預報。</div>
+        </div>
+      </div>
+    </section>
+
     <!-- 門市資訊+聯絡 -->
-    <section id="store">
+    <section id="store" class="reveal">
       <div class="section-label">門市資訊＆聯絡我們</div>
       <h2 class="section-title">我們還在長大的路上。</h2>
       <p class="section-desc"></p>
@@ -775,13 +963,33 @@
       </div>
     </section>
 
-    <footer>
+    <footer class="reveal">
       <div>© <span id="year"></span> lune amour. moonlight for soft hearts.</div>
     </footer>
   </main>
 
   <script>
+    // 年份
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // 捲動淡入效果
+    const revealElements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            // 若只要動畫一次，可以 unobserve
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
