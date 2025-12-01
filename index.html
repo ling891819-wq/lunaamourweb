@@ -657,6 +657,40 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* 手機版導覽列排版調整 */
+@media (max-width: 720px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 16px 14px;
+    gap: 8px;
+  }
+
+  .nav-left {
+    width: 100%;
+  }
+
+  nav ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;            /* 不要自動換行 */
+    gap: 8px;
+    overflow-x: auto;             /* 超出就左右滑 */
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav a {
+    white-space: nowrap;          /* 文案整段在同一行 */
+    letter-spacing: 0.08em;       /* 把字距縮小一點 */
+    font-size: 0.78rem;
+    padding: 6px 10px;
+  }
+
+  .brand-sub {
+    font-size: 0.7rem;            /* 副標稍微縮小，避免太擠 */
+  }
+}
   </style>
 </head>
 
