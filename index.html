@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lune amour|官方網站</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <title>lune amour | 官方網站</title>
+
+  <!-- 只載 Playfair 給英文 Logo 用 -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-  @font-face {
-    font-family: "Source Han Serif TC";
-    src: url("SourceHanSerifTC-Medium.otf") format("opentype");
-    font-weight: 500;   /* Medium = 500 */
-    font-style: normal;}
-    
+    /* 本機版 Noto Serif TC（可變字重） */
+    @font-face {
+      font-family: "Noto Serif TC Local";
+      src: url("NotoSerifTC-VariableFont_wght.ttf") format("truetype");
+      font-weight: 200 900;
+      font-style: normal;
+    }
+
     :root {
       --bg-pink: #f6ecef;
       --bg-pink-soft: #f9f3f4;
@@ -21,27 +27,31 @@
       --text-main: #6d6663;
       --accent-rose: #c9a29b;
       --border-soft: rgba(185, 173, 170, 0.35);
-      --shadow-soft: 0 18px 40px rgba(158, 132, 123, 0.18);}
+      --shadow-soft: 0 18px 40px rgba(158, 132, 123, 0.18);
+    }
 
     * {
       box-sizing: border-box;
       margin: 0;
-      padding: 0;}
+      padding: 0;
+    }
 
     html {
-      scroll-behavior: smooth;}
+      scroll-behavior: smooth;
+    }
 
     body {
-  margin: 0;
-  font-family: "Source Han Serif TC", serif;
-  background:
-    radial-gradient(circle at top left, #faeff2 0, transparent 55%),
-    radial-gradient(circle at bottom right, #f2e6ea 0, transparent 55%),
-    var(--bg-pink-soft);
-  color: var(--text-main);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
+      margin: 0;
+      font-family: "Noto Serif TC Local", "Noto Serif TC", serif;
+      font-weight: 400;
+      background:
+        radial-gradient(circle at top left, #faeff2 0, transparent 55%),
+        radial-gradient(circle at bottom right, #f2e6ea 0, transparent 55%),
+        var(--bg-pink-soft);
+      color: var(--text-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
     .page {
       max-width: 1080px;
@@ -176,13 +186,19 @@
     }
 
     .hero h1 {
-  font-family: "Source Han Serif TC", "Playfair Display", serif;
-  font-size: clamp(2.1rem, 3vw + 1.2rem, 2.9rem);
-  line-height: 1.22;
-  margin-bottom: 10px;}
+      font-family: "Noto Serif TC Local", "Noto Serif TC", serif;
+      font-weight: 500;
+      font-size: clamp(2.1rem, 3vw + 1.2rem, 2.9rem);
+      line-height: 1.22;
+      margin-bottom: 10px;
+    }
 
     .hero-highlight {
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0.3), rgba(241, 228, 231, 0.9));
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.3),
+        rgba(241, 228, 231, 0.9)
+      );
       border-radius: 18px;
       padding: 3px 12px 6px;
       display: inline-block;
@@ -242,18 +258,6 @@
     .hero-visual {
       position: relative;
       isolation: isolate;
-    }
-
-    .hero-card {
-      position: relative;
-      border-radius: 32px;
-      padding: 30px 26px 28px;
-      background:
-        radial-gradient(circle at 15% 0, rgba(254, 252, 252, 0.96), transparent 58%),
-        radial-gradient(circle at 100% 100%, #f0dfe2, #e1d2d4);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     /* 右側大圖:產品照 */
@@ -340,10 +344,11 @@
     }
 
     .section-title {
-  font-family: "Source Han Serif TC", "Playfair Display", serif;
-  font-size: 1.6rem;
-  margin-bottom: 14px;}
-
+      font-family: "Noto Serif TC Local", "Noto Serif TC", serif;
+      font-weight: 500;
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
 
     .section-desc {
       font-size: 0.96rem;
@@ -408,17 +413,21 @@
     }
 
     .menu-name {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      font-family: "Noto Serif TC Local", "Noto Serif TC", serif;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
 
-.menu-name .price {
-  font-size: 0.9rem;
-  color: #9c8f8a;
-}
+    .menu-name .price {
+      font-size: 0.9rem;
+      color: #9c8f8a;
+      font-weight: 400;
+    }
+
     .menu-desc {
       font-size: 0.86rem;
       margin-bottom: 8px;
@@ -488,6 +497,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      color: inherit;
     }
 
     .contact-pill span {
@@ -514,11 +524,11 @@
     <div class="nav">
       <div class="nav-left">
         <div class="nav-logo">
-  <!-- 左上角:品牌 logo 圖 -->
-  <img src="logo.png" alt="lune amour logo" />
-</div>
+          <!-- 左上角:品牌 logo 圖 -->
+          <img src="logo.png" alt="lune amour logo" />
+        </div>
         <div class="nav-title">
-          <div class="brand-en">LUNE AMOUR</div>
+          <div class="brand-en">lune amour</div>
           <div class="brand-sub">MOONLIGHT &amp; SOFT MOMENTS</div>
         </div>
       </div>
@@ -539,30 +549,28 @@
       <div>
         <div class="hero-copy-eyebrow">TEA &amp; MOONLIGHT · TAIPEI</div>
         <h1>
-          <span class="hero-highlight">月亮代表你的心 </span>
+          <span class="hero-highlight">月亮代表你的心</span>
         </h1>
         <p class="hero-sub">
-          LUNE AMOUR 想做的，是用飲料紀錄愛的每一個階段。<br />
-          
+          lune amour 想做的，是用飲料紀錄愛的每一個階段。<br />
+          讓一杯飲料不只是解渴，而是陪你走過心情起伏的小儀式。
         </p>
 
         <div class="hero-actions">
-          <a href="#menu" class="btn btn-primary">認識品牌
-          </a>
-          <a href="#story" class="btn btn-ghost">看看飲品</a>
+          <a href="#menu" class="btn btn-primary">看看飲品</a>
+          <a href="#story" class="btn btn-ghost">認識品牌</a>
         </div>
         <p class="hero-note"></p>
       </div>
 
       <div class="hero-visual">
         <div class="hero-logo">
-  <!-- 右側大圖:產品照片 -->
-  <img src="product.jpg" alt="lune amour product photo" />
-</div>
-          <div class="hero-tagline">soft drinks · soft hearts</div>
-          <div class="hero-moon-label">signature drink</div>
-          <div class="hero-orbit"></div>
+          <!-- 右側大圖:產品照片 -->
+          <img src="product.jpg" alt="lune amour product photo" />
         </div>
+        <div class="hero-tagline">soft drinks · soft hearts</div>
+        <div class="hero-moon-label">signature drink</div>
+        <div class="hero-orbit"></div>
       </div>
     </section>
 
@@ -570,20 +578,17 @@
     <section id="story">
       <div class="section-label">品牌故事</div>
       <h2 class="section-title">月相可以變化，愛的階段也可以流動。</h2>
-      <p class="section-desc">
-        
-      </p>
+      <p class="section-desc"></p>
 
       <div class="story-card">
         <p class="story-text">
-          每一杯飲料對應一個月相與愛情階段，讓喝飲料不只是解渴，而是一種情緒的體驗，一段戀愛故事的縮影。<br />
-          
+          每一杯飲料對應一個月相與愛情階段，讓喝飲料不只是解渴，而是一種情緒的體驗，一段戀愛故事的縮影。
         </p>
         <p class="story-quote">
-          新月 → 愛的萌芽，悸動青澀<br>
-          眉月 → 曖昧心跳，甜蜜微光<br>
-          上弦月 → 在一起，溫暖安定<br>
-          盈凸月 → 磨合與成長，苦甜交織<br>
+          新月 → 愛的萌芽，悸動青澀<br />
+          眉月 → 曖昧心跳，甜蜜微光<br />
+          上弦月 → 在一起，溫暖安定<br />
+          盈凸月 → 磨合與成長，苦甜交織<br />
           滿月 → 愛圓滿，幸福滿溢
         </p>
       </div>
@@ -593,146 +598,158 @@
     <section id="menu">
       <div class="section-label">飲品</div>
       <h2 class="section-title">如果飲料本身就帶有情緒？</h2>
-      <p class="section-desc">
-        
-      </p>
+      <p class="section-desc"></p>
+
       <div class="menu-grid">
+        <!-- 新月 -->
         <article class="menu-item">
-          <div class="menu-pill">New Moon</div>
-          <h3 class="menu-name">🌑 新月 
-           <span class="price">$50</span>
+          <div class="menu-pill">NEW MOON</div>
+          <h3 class="menu-name">
+            🌑 新月
+            <span class="price">$50</span>
           </h3>
           <p class="menu-desc">
-           愛情心境／暗戀萌芽_悸動、羞澀、期待<br>
-           飲品概念／清新果茶、淡雅花香茶，如白葡萄綠茶、柚香晨霧茶
-          </p>
-          
-          <div class="menu-meta">
-            <span>建議糖度：三分 </span>
-            <span>冷 / 熱 皆可</span>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-pill">Waxing Crescent</div>
-          <h3 class="menu-name">🌒 娥眉月
-          <span class="price">$55</span>
-          </h3>
-          <p class="menu-desc">
-            愛情心境/小小靠近_曖昧、心跳、甜蜜<br>
-            飲品概念/玫瑰蜜釀烏龍、莓霜奶蓋，粉色漸層飲
+            愛情心境／暗戀萌芽、悸動、羞澀、期待<br />
+            飲品概念／清新果茶、淡雅花香茶，如白葡萄綠茶、柚香晨霧茶
           </p>
           <div class="menu-meta">
-            <span>建議糖度：三分</span>
-            <span>冷飲</span>
-          </div>
-        </article>
-
-        <article class="menu-item">
-          <div class="menu-pill">First Quarter</div>
-          <h3 class="menu-name">🌓 上弦月
-          <span class="price">$55</span>
-          </h3>
-          <p class="menu-desc">
-            愛情心境/戀愛初期_確定關係、興奮<br>
-            飲品概念/焦糖雲朵拿鐵、可可乳霜，濃郁溫暖
-          </p>
-          <div class="menu-meta">
-            <span>建議糖度：無糖 / 三分</span>
-            <span>熱飲</span>
-          </div>
-        </article>
-        
-        <article class="menu-item">
-          <div class="menu-pill">Waxing Gibbous</div>
-          <h3 class="menu-name">🌔 盈凸月
-          <span class="price">$50</span>
-          </h3>
-          <p class="menu-desc">
-            愛情心境/磨合期_互相調整、苦甜交織<br>
-            飲品概念/檸檬蜜煎青茶、熟成焙茶奶香，層次感明顯
-            </p>
-          <div class="menu-meta">
-            <span>建議糖度: 三分</span>
-            <span>熱飲</span>
-            </div>
-        </article>
-        
-        <article class="menu-item">
-          <div class="menu-pill"> Full Moon</div>
-          <h3 class="menu-name">🌕 滿月
-          <span class="price">$55</span>
-          </h3>
-          <p class="menu-desc">
-            愛情心境/愛情圓滿_幸福、甜蜜、安心<br>
-            飲品概念/白桃雪酪、蜂蜜金月奶霜，夢幻濃郁
-            </p>
-          <div class="menu-meta">
-            <span>建議糖度：三分</span>
+            <span>建議糖度：半糖</span>
             <span>冷／熱 皆可</span>
-            </div>
+          </div>
         </article>
-        
+
+        <!-- 娥眉月 -->
         <article class="menu-item">
-          <div class="menu-pill">Waning Gibbous</div>
-          <h3 class="menu-name">🌖 盈虧月
-          <span class="price">$55</span>
+          <div class="menu-pill">WAXING CRESCENT</div>
+          <h3 class="menu-name">
+            🌒 娥眉月
+            <span class="price">$55</span>
           </h3>
           <p class="menu-desc">
-            愛情心境/關係波動_偶爾爭吵、矛盾<br>
-            飲品概念/葡萄微酸青茶、焦糖黑糖奶蓋，苦甜交織
-            </p>
+            愛情心境／小小靠近、曖昧、心跳、甜蜜<br />
+            飲品概念／玫瑰蜜釀烏龍、莓霜奶蓋，粉色漸層飲
+          </p>
           <div class="menu-meta">
-            <span>建議糖度：三分／五分</span>
+            <span>建議糖度：微糖</span>
             <span>冷飲</span>
-            </div>
+          </div>
         </article>
-        
+
+        <!-- 上弦月 -->
         <article class="menu-item">
-          <div class="menu-pill"> Last Quarter</div>
-          <h3 class="menu-name">🌗 下弦月
-          <span class="price">$50</span>
+          <div class="menu-pill">FIRST QUARTER</div>
+          <h3 class="menu-name">
+            🌓 上弦月
+            <span class="price">$55</span>
           </h3>
           <p class="menu-desc">
-            愛情心境/情緒低潮_失落、思考<br>
-            飲品概念/薰衣草舒緩青茶、黑糖暖心鮮奶,療癒系
-            </p>
+            愛情心境／戀愛初期、確定關係、興奮<br />
+            飲品概念／焦糖雲朵拿鐵、可可乳霜，濃郁溫暖
+          </p>
+          <div class="menu-meta">
+            <span>建議糖度：無糖／微糖</span>
+            <span>熱飲</span>
+          </div>
+        </article>
+
+        <!-- 盈凸月 -->
+        <article class="menu-item">
+          <div class="menu-pill">WAXING GIBBOUS</div>
+          <h3 class="menu-name">
+            🌔 盈凸月
+            <span class="price">$50</span>
+          </h3>
+          <p class="menu-desc">
+            愛情心境／磨合期、互相調整、苦甜交織<br />
+            飲品概念／檸檬蜜煎青茶、熟成焙茶奶香，層次感明顯
+          </p>
+          <div class="menu-meta">
+            <span>建議糖度：微糖</span>
+            <span>熱飲</span>
+          </div>
+        </article>
+
+        <!-- 滿月 -->
+        <article class="menu-item">
+          <div class="menu-pill">FULL MOON</div>
+          <h3 class="menu-name">
+            🌕 滿月
+            <span class="price">$55</span>
+          </h3>
+          <p class="menu-desc">
+            愛情心境／愛情圓滿、幸福、甜蜜、安心<br />
+            飲品概念／白桃雪酪、蜂蜜金月奶霜，夢幻濃郁
+          </p>
+          <div class="menu-meta">
+            <span>建議糖度：微糖</span>
+            <span>冷／熱 皆可</span>
+          </div>
+        </article>
+
+        <!-- 盈虧月 -->
+        <article class="menu-item">
+          <div class="menu-pill">WANING GIBBOUS</div>
+          <h3 class="menu-name">
+            🌖 盈虧月
+            <span class="price">$55</span>
+          </h3>
+          <p class="menu-desc">
+            愛情心境／關係波動、偶爾爭吵、矛盾<br />
+            飲品概念／葡萄微酸青茶、焦糖黑糖奶蓋，苦甜交織
+          </p>
+          <div class="menu-meta">
+            <span>建議糖度：微糖／半糖</span>
+            <span>冷飲</span>
+          </div>
+        </article>
+
+        <!-- 下弦月 -->
+        <article class="menu-item">
+          <div class="menu-pill">LAST QUARTER</div>
+          <h3 class="menu-name">
+            🌗 下弦月
+            <span class="price">$50</span>
+          </h3>
+          <p class="menu-desc">
+            愛情心境／情緒低潮、失落、思考<br />
+            飲品概念／薰衣草舒緩青茶、黑糖暖心鮮奶，療癒系
+          </p>
           <div class="menu-meta">
             <span>建議糖度：無糖</span>
             <span>冷／熱 皆可</span>
-            </div>
+          </div>
         </article>
-        
+
+        <!-- 殘月 -->
         <article class="menu-item">
-          <div class="menu-pill">Waning Crescent</div>
-          <h3 class="menu-name">🌘 殘月
-          <span class="price">$50</span>
+          <div class="menu-pill">WANING CRESCENT</div>
+          <h3 class="menu-name">
+            🌘 殘月
+            <span class="price">$50</span>
           </h3>
           <p class="menu-desc">
-            愛情心境/重啟或反思_整理心情、反思、重新出發<br>
-            飲品概念/白桃柔光冰釀、檸檬蜂蜜茶，清新輕盈
-           </p>
+            愛情心境／重啟或反思、整理心情、重新出發<br />
+            飲品概念／白桃柔光冰釀、檸檬蜂蜜茶，清新輕盈
+          </p>
           <div class="menu-meta">
-            <span>建議糖度：三分</span>
+            <span>建議糖度：微糖</span>
             <span>冷飲</span>
-            </div>
-</article>
-</div>  <!-- .menu-grid -->
+          </div>
+        </article>
+      </div>
     </section>
 
     <!-- 門市資訊+聯絡 -->
     <section id="store">
       <div class="section-label">門市資訊＆聯絡我們</div>
-      <h2 class="section-title">我們還在長大的路上</h2>
-      <p class="section-desc">
-      </p>
+      <h2 class="section-title">我們還在長大的路上。</h2>
+      <p class="section-desc"></p>
 
       <div class="info-grid">
         <div class="info-card">
           <div class="info-label">門市資訊</div>
-          <p class="info-main">實體門市 · 中山商圈Coming Soon</p>
-          <p class="info-small">
-          </p>
+          <p class="info-main">實體門市 · 中山商圈 Coming Soon</p>
+          <p class="info-small"></p>
         </div>
 
         <div class="info-card" id="contact">
@@ -750,8 +767,8 @@
             <a class="contact-pill" href="#" target="_blank" rel="noreferrer">
               <span>Threads</span> @luneamour
             </a>
-            <a class="contact-pill" href="mailto:helloluneamour＠gmail.com">
-              <span>Email</span> helloluneamour＠gmail.com
+            <a class="contact-pill" href="mailto:helloluneamour@gmail.com">
+              <span>Email</span> helloluneamour@gmail.com
             </a>
           </div>
         </div>
