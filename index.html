@@ -534,6 +534,18 @@
       display: grid;
       gap: 14px;
     }
+   /* 匿名表單卡片：比一般塔羅卡片窄一點，對齊上方 */
+.tarot-form-card {
+    margin-top: 14px;
+}
+
+/* 桌機版的排版方式 */
+@media (min-width: 720px) {
+    .tarot-form-card {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+}
 
     @media (min-width: 720px) {
       .tarot-card {
@@ -734,9 +746,8 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#story" class="btn btn-primary">品牌故事</a>
-          <a href="#menu" class="btn btn-primary">看看飲品</a>
-          <a href="#tarot" class="btn btn-ghost">抽一張今天的牌</a>
+          <a href="#story" class="btn btn-primary">抽一張今天的牌</a>
+<a href="#tarot-form-card" class="btn btn-ghost">將故事悄悄告訴月亮🌒</a>
         </div>
 
         <!-- 月相動畫列 -->
@@ -985,6 +996,31 @@
           <div>抽牌、翻開。</div>
           <div>就像看了一眼自己內心的天氣預報。</div>
         </div>
+          <!-- 匿名表單連結卡片 -->
+<div id="tarot-form-card" class="tarot-card tarot-form-card">
+  <div>
+    <p class="tarot-title">想把你的故事，悄悄說給月亮聽嗎？</p>
+
+    <p class="tarot-desc">
+      如果你有想說又說不出口的告白、遺憾、心事，
+      可以匿名寫給我們，或許也會成為下一杯飲料的靈感。
+    </p>
+
+    <p class="tarot-tagline">
+      不留名字，只留下那個當下的你。
+    </p>
+
+    <div style="margin-top: 10px;">
+      <a class="btn btn-ghost"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSfQpoQK7joJWjAkrGThX5mw7DY2Hxi7NYlxgickTv2DzjPTBw/viewform?usp=dialog"
+         target="_blank" rel="noreferrer">
+        前往匿名表單
+      </a>
+    </div>
+  </div>
+</div>
+
+
       </div>
     </section>
 
