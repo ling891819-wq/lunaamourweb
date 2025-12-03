@@ -534,10 +534,35 @@
       display: grid;
       gap: 14px;
     }
-   /* 匿名表單卡片：比一般塔羅卡片窄一點，對齊上方 */
-.tarot-form-card {
-    margin-top: 14px;
+/* 匿名表單區塊 */
+.anon-card {
+  margin-top: 20px;
+  padding: 28px 24px;
+  border: 1px solid rgba(201, 162, 155, 0.55);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 55%),
+    rgba(249, 243, 245, 0.85);
+  backdrop-filter: blur(4px);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: grid;
+  gap: 18px;
 }
+
+.anon-text {
+  font-size: 0.95rem;
+  color: #6d6460;
+  line-height: 1.7;
+}
+
+#anonymous .btn-primary {
+  display: inline-block;
+  margin-top: 6px;
+}
+
 
 /* 桌機版的排版方式 */
 @media (min-width: 720px) {
@@ -725,6 +750,7 @@
           <li><a href="#story">品牌故事</a></li>
           <li><a href="#menu">飲品</a></li>
           <li><a href="#tarot">線上塔羅</a></li>
+          <li><a href="#anonymous">匿名故事</a></li>
           <li><a href="#store">門市資訊</a></li>
           <li><a href="#contact">聯絡我們</a></li>
         </ul>
@@ -747,7 +773,7 @@
 
         <div class="hero-actions">
           <a href="#story" class="btn btn-primary">抽一張今天的牌</a>
-<a href="#tarot-form-card" class="btn btn-ghost">將故事悄悄告訴月亮🌒</a>
+<a href="#anonymous" class="btn btn-ghost">將故事悄悄告訴月亮🌒</a>
         </div>
 
         <!-- 月相動畫列 -->
@@ -996,33 +1022,32 @@
           <div>抽牌、翻開。</div>
           <div>就像看了一眼自己內心的天氣預報。</div>
         </div>
-          <!-- 匿名表單連結卡片 -->
-<div id="tarot-form-card" class="tarot-card tarot-form-card">
-  <div>
-    <p class="tarot-title">想把你的故事，悄悄說給月亮聽嗎？</p>
-
-    <p class="tarot-desc">
-      如果你有想說又說不出口的告白、遺憾、心事，
-      可以匿名寫給我們，或許也會成為下一杯飲料的靈感。
-    </p>
-
-    <p class="tarot-tagline">
-      不留名字，只留下那個當下的你。
-    </p>
-
-    <div style="margin-top: 10px;">
-      <a class="btn btn-ghost"
-         href="https://docs.google.com/forms/d/e/1FAIpQLSfQpoQK7joJWjAkrGThX5mw7DY2Hxi7NYlxgickTv2DzjPTBw/viewform?usp=dialog"
-         target="_blank" rel="noreferrer">
-        前往匿名表單
-      </a>
-    </div>
-  </div>
-</div>
-
-
       </div>
     </section>
+    <!-- 匿名故事表單區 -->
+<section id="anonymous" class="reveal">
+  <div class="section-label">匿名告白</div>
+  <h2 class="section-title">想把你的故事，悄悄說給月亮聽嗎？</h2>
+  <p class="section-desc">
+    有些話不好對人說，但可以放心交給月亮。  
+    你可以匿名留下你的感情故事、心事、遺憾或期待——  
+    月亮都會溫柔接住。
+  </p>
+
+  <div class="anon-card">
+    <p class="anon-text">
+      不需要名字、也不必留下聯絡方式。  
+      只要把心裡那段正在醞釀的小故事交給我們。
+    </p>
+
+    <a href="你的匿名表單連結"
+       class="btn btn-primary"
+       target="_blank" rel="noopener">
+       前往匿名表單
+    </a>
+  </div>
+</section>
+
 
     <!-- 門市資訊+聯絡 -->
     <section id="store" class="reveal">
