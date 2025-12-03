@@ -544,12 +544,20 @@
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 55%),
     rgba(249, 243, 245, 0.85);
   backdrop-filter: blur(4px);
-  max-width: 720px;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
   display: grid;
-  gap: 18px;
+  gap: 14px;
+  text-align: left;
+}
+
+.anon-card .section-title {
+  margin-bottom: 4px;
+}
+
+.anon-card .section-desc {
+  margin-bottom: 4px;
 }
 
 .anon-text {
@@ -559,7 +567,7 @@
 }
 
 #anonymous .btn-primary {
-  display: inline-block;
+  justify-self: flex-start;
   margin-top: 6px;
 }
 
@@ -842,10 +850,7 @@
     <p class="story-text">
       月相可以變化，愛的階段也可以流動。LUNE AMOUR 想做的，是陪你走過這些變化，每一杯飲料對應一個月相與愛情階段，讓喝飲料不只是解渴，而是一種情緒的體驗，一段戀愛故事的縮影。
     </p>
-
-    <p class="story-text">
-      我們的品牌使命，是讓 LUNE AMOUR 不只是一個手搖飲品牌，而是一種陪伴感與生活方式，我們想帶給客人陪伴感、情緒共鳴與浪漫的生活方式，並與你一起紀錄愛情的每個階段。
-    </p>
+    
   </div>
 </section>
 
@@ -1004,8 +1009,7 @@
         <div>
           <div class="tarot-title">lune amour 線上塔羅 · 抽一張屬於你的牌</div>
           <p class="tarot-desc">
-            有時候，我們只需要一個小提示，提醒自己，現在的自己正在走哪一段路、在什麼樣的情緒裡。<br />
-            抽一張牌，當成今天的月光提醒。
+            有時候，我們只需要一個小提示，提醒自己，現在的自己正在走哪一段路、在什麼樣的情緒裡，抽一張牌，當成今天的月光提醒。
           </p>
           <p class="tarot-tagline">
             抽牌結果可以搭配一杯當下最適合你的飲品，我們陪你一起慢慢消化。
@@ -1018,28 +1022,32 @@
           </div>
         </div> 
     </section>
-    <!-- 匿名故事表單區 -->
+   <!-- 匿名故事表單區 -->
 <section id="anonymous" class="reveal">
   <div class="section-label">匿名告白</div>
-  <h2 class="section-title">想把你的故事，悄悄說給月亮聽嗎？</h2>
-  <p class="section-desc">
-    有些話不好對人說，但可以放心交給月亮。  
-    你可以匿名留下你的感情故事、心事、遺憾或期待，月亮都會溫柔接住。
-  </p>
 
   <div class="anon-card">
+    <h2 class="section-title">想把你的故事，悄悄說給月亮聽嗎？</h2>
+
+    <p class="section-desc">
+      有些話不好對人說，但可以放心交給月亮。<br />
+      你可以匿名留下你的感情故事、心事、遺憾或期待，月亮都會溫柔接住。
+    </p>
+
     <p class="anon-text">
-      不需要名字、也不必留下聯絡方式。  
+      不需要名字，也不必留下聯絡方式，<br />
       只要把心裡那段正在醞釀的小故事交給我們。
     </p>
 
-    <a href="你的匿名表單連結"
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfQpoQK7joJWjAkrGThX5mw7DY2Hxi7NYlxgickTv2DzjPTBw/viewform?usp=dialog"
        class="btn btn-primary"
-       target="_blank" rel="noopener">
-       前往匿名表單
+       target="_blank"
+       rel="noopener">
+      前往匿名表單
     </a>
   </div>
 </section>
+
 
 
     <!-- 門市資訊+聯絡 -->
